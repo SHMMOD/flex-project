@@ -30,8 +30,10 @@ This app will utilize a node.js/express/PostgreSQL back-end. In place of an ORM,
 
 **Day 2:** Complete the notes page, compelete with auto-saving, custom styling, 
 * Quill 
+* Backend projects structure
 
-**Day 3:** Create the 'projects' structure, allowing users to save notes under named projects. Also allows for navigation via swiping. 
+**Day 3:** Create the 'projects' index page, allowing users to save notes under named projects. Also allows for navigation via swiping. 
+* Connecting back-end and front-end 
 
 **Day 4:** Integrate the ability to record and save audio snippets
 * AWS 
