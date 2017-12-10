@@ -25,6 +25,24 @@ This app will utilize a node.js/express/PostgreSQL back-end. In place of an ORM,
 * We completed the backend of basic user authentication utilizing Node.js/express 
 * We styled the authentication page of the app using React Native 
 
-# Group Members & Work Breakdown 
-* 
+# Implementation Timeline 
+**Day 1:** Connect the backend and front-end authentication, allowing users to sign in, sign up, and sign out. 
+
+**Day 2:** Complete the notes page, compelete with auto-saving, custom styling, 
+* Quill 
+
+**Day 3:** Create the 'projects' structure, allowing users to save notes under named projects. Also allows for navigation via swiping. 
+
+**Day 4:** Integrate the ability to record and save audio snippets
+* AWS 
+
+**Day 5:** Integrate audio playback
+
+**Day 6:** Integrate and style rhyming dictionary implementation 
+
+** Day 7:** Create product splash page and README
+
+
+
+
 
