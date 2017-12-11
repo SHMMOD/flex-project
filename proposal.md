@@ -41,9 +41,8 @@ The front-end will utilize React Native with Redux.
 * Audio snippets will be saved to AWS
 
 ## Things we accomplished this weekend
-* Matt H., Matt S., and Omar each completed the official [React Native](https://facebook.github.io/react-native/) walkthrough and documentation.
+* Matt H., Matt S., and Omar each completed the official [React Native](https://facebook.github.io/react-native/) walkthrough and documentation. We were each able to produce mobile apps with basic logic, and those apps bundled and refreshed instantly after saving. 
 * Matt S. and Omar completed the OAuth portion of a [Node with React Fullstack Web Development udemy course](https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/content). At the end of the tutorial, we were able to sign up, log in, and log out of a basic app. 
-the backend of basic user authentication utilizing Node.js/express
 
 
 # Implementation Timeline
@@ -74,6 +73,9 @@ the backend of basic user authentication utilizing Node.js/express
 * Style the display of the top results 
 
 **Day 7:** Create product splash page and README
+* Create README (Omar) 
+* Write splash page 
+* Style splash page
 
 ## Plan for getting users and reviews
 Among the three of us, we have a large number of friends who happen to be musicians. We will be in communication throughout the week to ask them what sort of features/styling they would like to see in a song-writing app. Once the app is approved by Apple, we will react out to those individuals to have them beta test our app. 
