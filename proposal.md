@@ -12,7 +12,7 @@ Musicians often have thoughts and inspirations that come and go unpredictably, s
 * Users can access a rhyming dictionary to help write lyrics 
 * Users can record audio snippets 
 
-## Wureframes
+## Wireframes
 
 Omar De Los Santos
 
