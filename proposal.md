@@ -17,9 +17,20 @@ Musicians often have thoughts and inspirations that come and go unpredictably, s
 
 Users will have the option to authenticate their account with either Google or a username/password combination. 
 
+![projects hierarchy](https://github.com/SHMMOD/flex-project/blob/master/wireframes/project_hierarchy.png)
+
+All current projects will be displayed on the left-most menu. While on this page, users will be able to enter projects by tapping on a project. They will also be able to delete a project by left swiping. 
+
+![notes and recordings](https://github.com/SHMMOD/flex-project/blob/master/wireframes/notes_and_recordings.png)
+
+Within a project, users will be able to see all notes and recordings saved under that project. There will be a brief snippet of information beside each item title. As with a project, users will be able to left swipe to delete. 
+
 ![notes](https://github.com/SHMMOD/flex-project/blob/master/wireframes/notes.png)
 
 As users type and style their notes, the app will auto-save every time the user stops typing. The 'save' icon will toggle (either in color between green and red or in shape between an 'x' and a checkmark) to indicate whether the note has been successfully saved. 
+
+
+
 
 ## Technologies & Technical Challenges
 This app will utilize a node.js/express/mongoDB back-end. 
@@ -48,11 +59,11 @@ The front-end will utilize React Native with Redux.
 # Implementation Timeline
 **Day 1:** Connect the backend and front-end authentication, allowing users to sign in, sign up, and sign out.
 * Implement back-end authentication and user-creation using OAuth (Matt H. and Omar)
-* Style frontend authentication page (Matt S)
+* Style frontend authentication page 
 
 **Day 2:** Complete the notes page, complete with auto-saving, custom styling, 
 * Construct 'projects' model (Omar)
-* Create 'projects' route handlers
+* Create 'projects' route handlers 
 * Integrate note-taking with styling using Quill 
 
 **Day 3:** Create the 'projects' index page, allowing users to save notes under named projects. Also allows for navigation via swiping.
