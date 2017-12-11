@@ -13,8 +13,11 @@ Musicians often have thoughts and inspirations that come and go unpredictably, s
 * Users can record audio snippets
 
 ## Wireframes
+![authentication](https://github.com/SHMMOD/flex-project/blob/master/wireframes/authentication.png)
+Users will have the option to authenticate their account with either Google or a username/password combination. 
 
-Omar De Los Santos
+![notes](https://github.com/SHMMOD/flex-project/blob/master/wireframes/notes.png)
+As users type and style their notes, the app will auto-save every time the user stops typing. The 'save' icon will toggle (either in color between green and red or in shape between an 'x' and a checkmark) to indicate whether the note has been successfully saved. 
 
 ## Technologies & Technical Challenges
 
