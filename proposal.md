@@ -29,6 +29,9 @@ The front-end will utilize React Native with Redux.
 **Authentication using username/password combination or OAuth**
 * We will utilize passport to facilitate the authentication flow.
 
+**Ability to write notes with styling**
+* [Quill](https://quilljs.com) is a cross-platform text-editor that, when integrated, will allow users to customize their notes with styling. 
+
 **Integration of rhyming dictionary:**
 * datamuse.com offers a free, simple API for finding rhymes. As a user types, they will be presented with an option to rhyme a word. The last word typed or the word currently being typed can be stored in the state. When the user clicks on the option to see rhymes, a GET request will be dispatched to datamuse. The top results can then be displayed to the user. 
 
@@ -39,7 +42,7 @@ The front-end will utilize React Native with Redux.
 
 ## Things we accomplished this weekend
 * Matt H., Matt S., and Omar each completed the official [React Native](https://facebook.github.io/react-native/) walkthrough and documentation.
-* Matt S. and Omar completed the OAuth portion of a [Node with React Fullstack Web Development udemy course] https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/content. At the end of the tutorial, we were able to sign up, log in, and log out of a basic app. 
+* Matt S. and Omar completed the OAuth portion of a [Node with React Fullstack Web Development udemy course](https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/content). At the end of the tutorial, we were able to sign up, log in, and log out of a basic app. 
 the backend of basic user authentication utilizing Node.js/express
 
 
