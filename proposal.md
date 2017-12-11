@@ -32,10 +32,12 @@ The front-end will utilize React Native with Redux.
 **Integration of rhyming dictionary:**
 * datamuse.com offers a free, simple API for finding rhymes. As a user types, they will be presented with an option to rhyme a word. The last word typed or the word currently being typed can be stored in the state. When the user clicks on the option to see rhymes, a GET request will be dispatched to datamuse. The top results can then be displayed to the user. 
 
- **Users can record and play back audio snippets**
-[React Audio](https://www.datamuse.com)
+ **Users can record and play back audio snippets:**
+* We will use [React Native Audio](https://github.com/jsierles/react-native-audio) to record audio snippets. 
+* We will user [React Native Sound](https://github.com/zmxv/react-native-sound) to play back audio snippets.
+* Audio snippets will be saved to AWS
 
-### Things we accomplished this weekend
+## Things we accomplished this weekend
 * Matt H., Matt S., and Omar each completed the official [React Native](https://facebook.github.io/react-native/) walkthrough and documentation.
 * Matt S. and Omar completed the OAuth portion of a [Node with React Fullstack Web Development udemy course] https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/content. At the end of the tutorial, we were able to sign up, log in, and log out of a basic app. 
 the backend of basic user authentication utilizing Node.js/express
@@ -57,13 +59,18 @@ the backend of basic user authentication utilizing Node.js/express
 
 **Day 4:** Integrate the ability to record and save audio snippets
 * Integrate AWS A3 storage (Matt S)
+* Integrate React Native Audio 
 
 **Day 5:** Integrate audio playback
+* Integrate React Native Sound 
 * Style playback features 
 
 **Day 6:** Integrate and style rhyming dictionary implementation
-* Create API util 
+* Create API util (Omar) 
 * Create route handlers 
 * Style the display of the top results 
 
 **Day 7:** Create product splash page and README
+
+## Plan for getting users and reviews
+Among the three of us, we have a large number of friends who happen to be musicians. We will be in communication throughout the week to ask them what sort of features/styling they would like to see in a song-writing app. Once the app is approved by Apple, we will react out to those individuals to have them beta test our app. 
