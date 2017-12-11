@@ -2,31 +2,44 @@
 
 ## Background
 
-Musicians often have thoughts and inspirations that come and go unpredictably, sometimes resulting in a disorganized songwriting process.  We want to create an app that streamlines and organizes notes and audio recordings used to create songs.  Our mobile app will allow registered users to organize a song into "projects", each being able to store notes that are specific to lyrics, chords, song structure, etc., as well as audio ideas.
+Musicians often have thoughts and inspirations that come and go unpredictably, sometimes resulting in a disorganized songwriting process.  We want to create an app that streamlines and organizes notes and audio recordings used to create songs.  Our mobile app will allow registered users to organize a song into "projects", each being able to store notes that are specific to lyrics, chords, song structure, etc., as well as audio ideas. Those audio-recordings will, optionally, be saved to a popular cloud-storge. 
 
 
 ## Functionality and MVP
-
 * Create an account using username/password combination or OAuth
 * Users can create projects that have the ability to store notes that can be autosaved
 * Users can access a rhyming dictionary to help write lyrics
-* Users can record audio snippets
+* Users can record and play back audio snippets
+
 
 ## Wireframes
 ![authentication](https://github.com/SHMMOD/flex-project/blob/master/wireframes/authentication.png)
+
 Users will have the option to authenticate their account with either Google or a username/password combination. 
 
 ![notes](https://github.com/SHMMOD/flex-project/blob/master/wireframes/notes.png)
+
 As users type and style their notes, the app will auto-save every time the user stops typing. The 'save' icon will toggle (either in color between green and red or in shape between an 'x' and a checkmark) to indicate whether the note has been successfully saved. 
 
 ## Technologies & Technical Challenges
+This app will utilize a node.js/express/mongoDB back-end. 
 
-This app will utilize a node.js/express/PostgreSQL back-end. In place of an ORM, we will query the database directly using SQL.  The front-end will utilize React Native with Redux.  
+The front-end will utilize React Native with Redux.  
+
+**Authentication using username/password combination or OAuth**
+* We will utilize passport to facilitate the authentication flow.
+
+**Integration of rhyming dictionary:**
+* datamuse.com offers a free, simple API for finding rhymes. As a user types, they will be presented with an option to rhyme a word. The last word typed or the word currently being typed can be stored in the state. When the user clicks on the option to see rhymes, a GET request will be dispatched to datamuse. The top results can then be displayed to the user. 
+
+ **Users can record and play back audio snippets**
+[React Audio](https://www.datamuse.com)
 
 ### Things we accomplished this weekend
 * Matt H., Matt S., and Omar each completed the official [React Native](https://facebook.github.io/react-native/) walkthrough and documentation.
 * We completed the backend of basic user authentication utilizing Node.js/express
 * We styled the authentication page of the app using React Native
+
 
 # Implementation Timeline
 **Day 1:** Connect the backend and front-end authentication, allowing users to sign in, sign up, and sign out.
