@@ -60,11 +60,11 @@ The front-end will utilize React Native with Redux.
 * Connecting back-end and front-end
 
 **Day 4:** Integrate the ability to record and save audio snippets
-* Integrate AWS A3 storage (Matt S)
+* Integrate AWS A3 storage (Omar)
 * Integrate React Native Audio 
 
 **Day 5:** Integrate audio playback
-* Integrate React Native Sound 
+* Integrate React Native Sound (Omar)
 * Style playback features 
 
 **Day 6:** Integrate and style rhyming dictionary implementation
