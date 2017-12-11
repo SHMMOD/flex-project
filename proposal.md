@@ -42,7 +42,7 @@ This app will utilize a node.js/express/PostgreSQL back-end. In place of an ORM,
 
 **Day 6:** Integrate and style rhyming dictionary implementation 
 
-** Day 7:** Create product splash page and README
+**Day 7:** Create product splash page and README
 
 
 
