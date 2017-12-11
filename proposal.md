@@ -37,25 +37,33 @@ The front-end will utilize React Native with Redux.
 
 ### Things we accomplished this weekend
 * Matt H., Matt S., and Omar each completed the official [React Native](https://facebook.github.io/react-native/) walkthrough and documentation.
-* We completed the backend of basic user authentication utilizing Node.js/express
-* We styled the authentication page of the app using React Native
+* Matt S. and Omar completed the OAuth portion of a [Node with React Fullstack Web Development udemy course] https://www.udemy.com/node-with-react-fullstack-web-development/learn/v4/content. At the end of the tutorial, we were able to sign up, log in, and log out of a basic app. 
+the backend of basic user authentication utilizing Node.js/express
 
 
 # Implementation Timeline
 **Day 1:** Connect the backend and front-end authentication, allowing users to sign in, sign up, and sign out.
+* Implement back-end authentication and user-creation using OAuth (Matt H. and Omar)
+* Style frontend authentication page (Matt S)
 
 **Day 2:** Complete the notes page, complete with auto-saving, custom styling, 
-* Quill
-* Backend projects structure
+* Construct 'projects' model (Omar)
+* Create 'projects' route handlers
+* Integrate note-taking with styling using Quill 
 
 **Day 3:** Create the 'projects' index page, allowing users to save notes under named projects. Also allows for navigation via swiping.
+* Handle swiping between pages (Omar) 
 * Connecting back-end and front-end
 
 **Day 4:** Integrate the ability to record and save audio snippets
-* AWS
+* Integrate AWS A3 storage (Matt S)
 
 **Day 5:** Integrate audio playback
+* Style playback features 
 
 **Day 6:** Integrate and style rhyming dictionary implementation
+* Create API util 
+* Create route handlers 
+* Style the display of the top results 
 
 **Day 7:** Create product splash page and README
