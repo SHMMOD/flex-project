@@ -4,6 +4,7 @@ const cookieSession = require('cookie-session');
 const passport = require('passport');
 const keys = require('./config/keys');
 require('./models/User');
+require('./models/Project'); 
 require('./services/passport');
 
 mongoose.connect(keys.mongoURI);
@@ -20,6 +21,7 @@ app.use(passport.initialize());
 app.use (passport.session());
 
 require('./routes/auth_routes')(app);
+require('./routes/project_routes')(app);
 
 const PORT = process.env.port || 5000;
 console.log(`listening on ${PORT}`);
