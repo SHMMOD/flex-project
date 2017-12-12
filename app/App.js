@@ -1,12 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { AppRegistry } from 'react-native';
+import configureStore from './store/store';
+import {Provider} from 'react-redux';
+import SessionContainer from './components/session/session_container';
+
+const store = configureStore();
+
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <View style={{flex: 1}}>
-        <Text>Hello world</Text>
-      </View>
+  render(){
+    return(
+      <Provider store={store}>
+        <SessionContainer />
+      </Provider>
     );
   }
 }
