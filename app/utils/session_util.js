@@ -1,5 +1,6 @@
 export const authenticate = () => {
-  fetch('localhost:5000/auth/google', {
+  // console.log("in util")
+  fetch('https://localhost:5000/auth/google', {
     method: 'GET',
     // headers: {
     //   Accept: 'application/json',

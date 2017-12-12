@@ -14,7 +14,7 @@ export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 
 export const authenticate = () => dispatch => (
   SessionUtil.authenticate()
-    .then(userResp => dispatch(receiveCurrentUser(userResp)))
+    // .then(userResp => dispatch(receiveCurrentUser(userResp)))
 );
 
 
