@@ -25,6 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false}));
 
 require('./routes/auth_routes')(app);
+require('./routes/user_routes')(app);
 require('./routes/project_routes')(app);
 
 const PORT = process.env.port || 5000;
