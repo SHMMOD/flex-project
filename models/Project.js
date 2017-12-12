@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 
 const projectSchema = new Schema({
   name: String
-  // TODO: associate with user  
+  // TODO: associate with user
 
 });
 
