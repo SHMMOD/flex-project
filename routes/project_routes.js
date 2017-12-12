@@ -4,8 +4,9 @@ const Project = mongoose.model('projects');
 
 module.exports = (app) => {
 
-
+  // GET all projects
   app.get('/api/projects', (req, res) => {
+    // from: https://stackoverflow.com/questions/14103615/mongoose-get-full-list-of-users
     Project.find({}, function(err, projects) {
       var projectMap = {};
 
@@ -17,5 +18,18 @@ module.exports = (app) => {
     });
   });
 
+  // GET all of a user's projects
 
+
+  // POST new project directory
+  app.post('/api/projects', (req, res) => {
+    // TODO: check to ensure that project does not already exist
+    // TODO: user current user's ID
+    new Project ({name: req.name}).save().then(resp => console.log(resp));
+  });
+
+
+  // PATCH a project 
+
+  // DELETE a project
 };
