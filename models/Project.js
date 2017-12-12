@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const projectSchema = new Schema({
   name: String,
   // TODO: associate with CURRENT user
-  currentUser: String 
+  user: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 const Project = mongoose.model('projects', projectSchema);
