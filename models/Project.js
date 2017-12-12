@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const projectSchema = new Schema({
-  name: String
-  // TODO: associate with user
-
+  name: String,
+  // TODO: associate with CURRENT user
+  currentUser: String 
 });
 
 const Project = mongoose.model('projects', projectSchema);
