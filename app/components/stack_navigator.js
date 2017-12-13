@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
 
+
+//iterate through projects, create a button for each one that will
 const ProjectsScreen = ({ navigation }) => (
   <View >
 
