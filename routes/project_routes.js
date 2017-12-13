@@ -57,10 +57,12 @@ module.exports = (app) => {
   // PATCH a project
 
   // DELETE a project
-  // app.delete('/api/projects/', (req, res) => {
-  //   const project = Project.findById(req.body.projectId);
-  //   Project.remove({ project }, function(err) {
-  //     if (err) return console.log(err);
-  //   });
-  // });
+  app.delete('/api/projects/:projectId', (req, res) => {
+    Project.findByIdAndRemove(req.params.projectId,
+      function(err, projectsResp) {
+        // TODO handle errors
+        if (err) return res.send(err);
+        return res.send(projectsResp);
+      });
+  });
 };
