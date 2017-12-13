@@ -17,6 +17,7 @@ module.exports = (app) => {
   //   });
   // });
 
+
   // GET single project by ID
   app.get('/api/projects/:id', (req, res) => {
     Project.findOne({ _id: req.params.id })
@@ -39,7 +40,20 @@ module.exports = (app) => {
     );
   });
 
-  // POST new project directory
+  // POST new project
+  app.post('/api/projects', (req, res) => {
+    const newProject = new Project({
+      name: req.body.name,
+      //TODO: ensure that userId === currentUser's id
+      userId: req.body.userId
+    });
+    newProject.save(function(err, newProjectResp) {
+      if (err) return res.send(err);
+      return res.send(newProjectResp);
+    });
+  });
+
+
   // app.post('/api/projects', (req, res) => {
   //   console.log(req.body);
   //   const newProject = new Project({
@@ -54,7 +68,24 @@ module.exports = (app) => {
   // });
 
 
-  // PATCH a project
+  // PUT a project
+  // TODO: ensure that users can only update some parameters (e.g. title)
+  // app.put('/api/projects/:projectId', function(req, res) {
+  //   Project.findById(req.params.projectId, (err, project) => {
+  //     // TODO: handle errors
+  //     if (err) {
+  //       return res.send(err);
+  //     } else {
+  //       project.name = req.body.name;
+  //       project.userId = project.userId;
+  //
+  //       project.save((err, project) => {
+  //         if (err) return res.send(err);
+  //         return res.send(project);
+  //       })
+  //     }
+  //   });
+  // });
 
   // DELETE a project
   app.delete('/api/projects/:projectId', (req, res) => {
@@ -62,6 +93,7 @@ module.exports = (app) => {
       function(err, projectsResp) {
         // TODO handle errors
         if (err) return res.send(err);
+        // TODO: determine what to send down after a delete
         return res.send(projectsResp);
       });
   });
