@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import { StackNavigator } from 'react-navigation'; // 1.0.0-beta.14
+import Note from './note/note_show';
 
 const ProjectsScreen = ({ navigation }) => (
   <View >
@@ -13,9 +14,7 @@ const ProjectsScreen = ({ navigation }) => (
 );
 
 const ProjectScreen = () => (
-  <View>
-    <Text>Project Details Screen</Text>
-  </View>
+  <Note/>
 );
 
 const ProjectsNavigator = StackNavigator({
