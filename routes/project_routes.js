@@ -19,8 +19,8 @@ module.exports = (app) => {
 
 
   // GET single project by ID
-  app.get('/api/projects/:id', (req, res) => {
-    Project.findOne({ _id: req.params.id })
+  app.get('/api/projects/:projectId', (req, res) => {
+    Project.findOne({ _id: req.params.projectId })
       .exec(function (err, projectResp) {
         // TODO handle errors
         if (err) return console.log(err);
@@ -68,25 +68,6 @@ module.exports = (app) => {
       });
     });
   });
-
-
-  // TODO: ensure that users can only update some parameters (e.g. title)
-  // app.put('/api/projects/:projectId', function(req, res) {
-  //   Project.findById(req.params.projectId, (err, project) => {
-  //     // TODO: handle errors
-  //     if (err) {
-  //       return res.send(err);
-  //     } else {
-  //       project.name = req.body.name;
-  //       project.userId = project.userId;
-  //
-  //       project.save((err, project) => {
-  //         if (err) return res.send(err);
-  //         return res.send(project);
-  //       })
-  //     }
-  //   });
-  // });
 
   // DELETE a project
   app.delete('/api/projects/:projectId', (req, res) => {
