@@ -6,9 +6,8 @@ import { TabNavigator } from 'react-navigation'; // 1.0.0-beta.14
 import ProjectsNavigator from './stack_navigator';
 
 const ProjectsScreen = () => (
-  <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
     <ProjectsNavigator/>
-  </View>
+
 );
 
 const FilesScreen = () => (
