@@ -60,13 +60,12 @@ module.exports = (app) => {
       if (err) return res.send(err);
 
       // allowable fields to update
-      queryProjectResp.name = req.body.name;
-      queryProjectResp.userId = queryProjectResp.userId; // TODO: ensure currentUser's id
+      queryProjectResp.name = req.body.name || queryProjectResp.name;
 
       queryProjectResp.save(function(saveErr, savedProjectResp) {
         if (saveErr) return res.send(saveErr);
         return res.send(savedProjectResp);
-      }); 
+      });
     });
   });
 

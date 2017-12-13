@@ -10,7 +10,7 @@ const projectSchema = new Schema({
     // TODO: required is not preventing the creation of user-less projects!
     required: true
   },
-
+  // TODO: add timestamps, character limits
 });
 
 const Project = mongoose.model('projects', projectSchema);
