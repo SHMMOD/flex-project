@@ -4,7 +4,13 @@ const { Schema } = mongoose;
 const projectSchema = new Schema({
   name: String,
   // TODO: associate with CURRENT user
-  user: { type: Schema.Types.ObjectId, ref: 'User' }
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User',
+    // TODO: required is not preventing the creation of user-less projects!
+    required: true
+  },
+
 });
 
 const Project = mongoose.model('projects', projectSchema);
