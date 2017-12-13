@@ -17,9 +17,10 @@ module.exports = (app) => {
   //   });
   // });
 
+
   // GET single project by ID
-  app.get('/api/projects/:id', (req, res) => {
-    Project.findOne({ _id: req.params.id })
+  app.get('/api/projects/:projectId', (req, res) => {
+    Project.findOne({ _id: req.params.projectId })
       .exec(function (err, projectResp) {
         // TODO handle errors
         if (err) return console.log(err);
@@ -39,28 +40,43 @@ module.exports = (app) => {
     );
   });
 
-  // POST new project directory
-  // app.post('/api/projects', (req, res) => {
-  //   console.log(req.body);
-  //   const newProject = new Project({
-  //     name: req.body.name,
-  //     // TODO use current user's ID
-  //     user: req.body.user
-  //    });
-  //   newProject.save(function (err, project) {
-  //     // TODO implement error handling
-  //     if (err) return console.log(err);
-  //   }).then(projectResp => res.send(projectResp));
-  // });
+  // POST new project
+  app.post('/api/projects', (req, res) => {
+    const newProject = new Project({
+      name: req.body.name,
+      //TODO: ensure that userId === currentUser's id
+      userId: req.body.userId
+    });
+    newProject.save(function(err, newProjectResp) {
+      if (err) return res.send(err);
+      return res.send(newProjectResp);
+    });
+  });
 
+  // PUT a project
+  app.put('/api/projects/:projectId', (req, res) => {
+    Project.findById(req.params.projectId, function(err, queryProjectResp) {
+      // TODO: handle error
+      if (err) return res.send(err);
 
-  // PATCH a project
+      // allowable fields to update
+      queryProjectResp.name = req.body.name || queryProjectResp.name;
+
+      queryProjectResp.save(function(saveErr, savedProjectResp) {
+        if (saveErr) return res.send(saveErr);
+        return res.send(savedProjectResp);
+      });
+    });
+  });
 
   // DELETE a project
-  // app.delete('/api/projects/', (req, res) => {
-  //   const project = Project.findById(req.body.projectId);
-  //   Project.remove({ project }, function(err) {
-  //     if (err) return console.log(err);
-  //   });
-  // });
+  app.delete('/api/projects/:projectId', (req, res) => {
+    Project.findByIdAndRemove(req.params.projectId,
+      function(err, projectsResp) {
+        // TODO handle errors
+        if (err) return res.send(err);
+        // TODO: determine what to send down after a delete
+        return res.send(projectsResp);
+      });
+  });
 };
