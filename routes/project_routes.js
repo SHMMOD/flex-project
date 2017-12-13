@@ -53,22 +53,24 @@ module.exports = (app) => {
     });
   });
 
-
-  // app.post('/api/projects', (req, res) => {
-  //   console.log(req.body);
-  //   const newProject = new Project({
-  //     name: req.body.name,
-  //     // TODO use current user's ID
-  //     user: req.body.user
-  //    });
-  //   newProject.save(function (err, project) {
-  //     // TODO implement error handling
-  //     if (err) return console.log(err);
-  //   }).then(projectResp => res.send(projectResp));
-  // });
-
-
   // PUT a project
+  app.put('/api/projects/:projectId', (req, res) => {
+    Project.findById(req.params.projectId, function(err, queryProjectResp) {
+      // TODO: handle error
+      if (err) return res.send(err);
+
+      // allowable fields to update
+      queryProjectResp.name = req.body.name;
+      queryProjectResp.userId = queryProjectResp.userId; // TODO: ensure currentUser's id
+
+      queryProjectResp.save(function(saveErr, savedProjectResp) {
+        if (saveErr) return res.send(saveErr);
+        return res.send(savedProjectResp);
+      }); 
+    });
+  });
+
+
   // TODO: ensure that users can only update some parameters (e.g. title)
   // app.put('/api/projects/:projectId', function(req, res) {
   //   Project.findById(req.params.projectId, (err, project) => {
