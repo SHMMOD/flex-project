@@ -54,31 +54,31 @@ This app will utilize a node.js/express/PostgreSQL back-end. In place of an ORM,
 
 # Implementation Timeline
 **Day 1:** Connect the backend and front-end authentication, allowing users to sign in, sign up, and sign out.
-* Implement back-end authentication and user-creation using OAuth (Matt H. and Omar)
-* Style frontend authentication page
+* Implement back-end authentication and user-creation using OAuth (Matt S. and Omar)
+* Style frontend authentication page (Matt H.)
 
 **Day 2:** Complete the notes page, complete with auto-saving, custom styling,
 * Construct 'projects' model (Omar)
-* Create 'projects' route handlers
-* Integrate note-taking with styling using Quill
+* Create 'projects' route handlers (Matt S.)
+* Integrate note-taking with styling using Quill (Matt H.)
 
 **Day 3:** Create the 'projects' index page, allowing users to save notes under named projects. Also allows for navigation via swiping.
-* Connecting back-end and front-end
+* Connecting back-end and front-end (All)
 
 **Day 4:** Integrate the ability to record and save audio snippets
 * Integrate AWS A3 storage (Omar)
-* Integrate React Native Audio
+* Integrate React Native Audio (Matt S.)
 
 **Day 5:** Integrate audio playback
 * Integrate React Native Sound (Omar)
-* Style playback features
+* Style playback features (Matt H.)
 
 **Day 6:** Integrate and style rhyming dictionary implementation
 
 **Day 7:** Create product splash page and README
 * Create README (Omar)
-* Write splash page
-* Style splash page
+* Write splash page (Matt H.)
+* Style splash page (Matt S.)
 
 ## Plan for getting users and reviews
 Among the three of us, we have a large number of friends who happen to be musicians. We will be in communication throughout the week to ask them what sort of features/styling they would like to see in a song-writing app. Once the app is approved by Apple, we will react out to those individuals to have them beta test our app.
