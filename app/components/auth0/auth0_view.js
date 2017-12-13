@@ -18,6 +18,7 @@ const auth0 = new Auth0({
 });
 
 const ACCESS_TOKEN = 'accessToken';
+const ID_TOKEN = 'idToken';
 
 export default class Auth0View extends React.Component {
   constructor(props) {
@@ -48,17 +49,19 @@ export default class Auth0View extends React.Component {
       console.log('logged in');
       console.log(resp);
       this._onValueChange(ACCESS_TOKEN, resp[ACCESS_TOKEN]),
+      this._onValueChange(ID_TOKEN, resp[ID_TOKEN]),
       AlertIOS.alert(
         "Logged in!"
       );
     })
     .then(async () => {
       try {
-        const token = await AsyncStorage.getItem(ACCESS_TOKEN);
-        auth0.auth.userInfo({token: token})
-          .then(user => {
-            console.log(user);
-          });
+        const token = await AsyncStorage.getItem(ID_TOKEN);
+        this.props.receiveCurrentUser(token);
+        // auth0.auth.userInfo({token: token})
+        //   .then(user => {
+        //     console.log(user);
+        //   });
       } catch(error) {
         console.log('AsyncStorage error: ' + error.message);
       }
