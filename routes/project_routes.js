@@ -3,16 +3,6 @@ const mongoose = require('mongoose');
 const Project = mongoose.model('projects');
 
 module.exports = (app) => {
-
-  // GET singly project by ID
-  // app.get('/api/project/:id', (req, res) => {
-  //   console.log(req);
-  //   Project.findOne({ id: req.body.id})
-  //     .populate('User')
-  //     .then(userResp => res.send(userResp));
-  // });
-
-
   // GET all projects
   // app.get('/api/projects', (req, res) => {
   //   // from: https://stackoverflow.com/questions/14103615/mongoose-get-full-list-of-users
@@ -27,8 +17,27 @@ module.exports = (app) => {
   //   });
   // });
 
-  // GET all of a user's projects
+  // GET single project by ID
+  app.get('/api/projects/:id', (req, res) => {
+    Project.findOne({ _id: req.params.id })
+      .exec(function (err, projectResp) {
+        // TODO handle errors
+        if (err) return console.log(err);
+        // TODO handle no project found
+        res.send(projectResp);
+      });
+  });
 
+  // GET all of a user's projects
+  app.get('/api/users/:userId/projects', function(req, res) {
+    Project.find({ userId: req.params.userId },
+      function(err, projectsResp) {
+        // TODO handle errors
+        if (err) return res.send(err);
+        return res.send(projectsResp);
+      }
+    );
+  });
 
   // POST new project directory
   // app.post('/api/projects', (req, res) => {

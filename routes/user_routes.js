@@ -19,21 +19,15 @@ module.exports = (app) => {
 
   // GET one user by ID
   app.get('/api/users/:id', function(req, res) {
-    console.log(req.params.id);
-
-    // const query = User.findOne({ '_id': `${req.params.id}` });
-    // query.select('name');
-    // console.log(query.select('name'));
-
     User.findOne({ _id: req.params.id },
       function(err, userResp) {
-        if (err) return console.log(err);
+        // TODO: handle errors
+        console.log(err);
+        if (err) return res.send(err);
         console.log('user response', userResp);
+        // TODO: handle no user found
         res.send(userResp);
       }
     );
-    // User.findOne({ id: req.params.id})
-    //   // .populate('Project')
-    //   .then(userResp => res.send(userResp));
   });
 };

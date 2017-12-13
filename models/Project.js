@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const projectSchema = new Schema({
   name: String,
   // TODO: associate with CURRENT user
-  user: {
+  userId: {
     type: Schema.Types.ObjectId,
     ref: 'User',
     // TODO: required is not preventing the creation of user-less projects!
@@ -16,20 +16,22 @@ const projectSchema = new Schema({
 const Project = mongoose.model('projects', projectSchema);
 
 // const project1 = new Project({
-//   name: 'project1'
+//   name: 'project1',
+//   userId: '5a30b30f22350f0b8531ad93'
 // }).save();
 // const project2 = new Project({
-//   name: 'project2'
+//   name: 'project2',
+//   userId: '5a30b30f22350f0b8531ad93'
 // }).save();
 // const project3 = new Project({
-//   name: 'project3'
+//   name: 'project3',
+//   userId: '5a30b30f22350f0b8531ad93'
 // }).save();
 // const project4 = new Project({
-//   name: 'project4'
+//   name: 'project4',
+//   userId: '5a30b30f22350f0b8531ad94'
 // }).save();
 // const project5 = new Project({
-//   name: 'project5'
-// }).save();
-// const project6 = new Project({
-//   name: 'project5'
+//   name: 'project5',
+//   userId: '5a30b30f22350f0b8531ad95'
 // }).save();
