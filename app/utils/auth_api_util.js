@@ -1,3 +1,5 @@
+// todo: decide if this file is needed
+
 import Auth0 from 'react-native-auth0';
 const { auth0Config } = require('../config/config');
 const auth0 = new Auth0(auth0Config);

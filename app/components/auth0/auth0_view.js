@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {
-  Alert,
+  AlertIOS,
   AppRegistry,
+  AsyncStorage,
   Button,
-  Platform,
   StyleSheet,
   Text,
   View
@@ -17,62 +17,7 @@ const auth0 = new Auth0({
   clientId: auth0Config.clientId
 });
 
-// export default class Auth0View extends Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = { accessToken: null };
-//   }
-//
-//   _onLogin = () => {
-//     console.log('heyy');
-//     auth0.webAuth
-//       .authorize({
-//         scope: 'openid profile',
-//         audience: 'https://' + auth0Config.domain + '/userinfo'
-//       })
-//       .then(credentials => {
-//         console.log('hello');
-//         console.log(credentials);
-//         Alert.alert(
-//           'Success',
-//           'AccessToken: ' + credentials.accessToken,
-//           [{ text: 'OK', onPress: () => console.log('OK Pressed') }],
-//           { cancelable: false }
-//         );
-//         this.setState({ accessToken: credentials.accessToken });
-//       })
-//       .catch(error => console.log('oh no:', error));
-//   };
-//
-//   _onLogout = () => {
-//     if (Platform.OS === 'android') {
-//       this.setState({ accessToken: null });
-//     } else {
-//       auth0.webAuth
-//         .clearSession({})
-//         .then(success => {
-//           this.setState({ accessToken: null });
-//         })
-//         .catch(error => console.log(error));
-//     }
-//   };
-//
-//   render() {
-//     let loggedIn = this.state.accessToken === null ? false : true;
-//     return (
-//       <View style={styles.container}>
-//         <Text style={styles.header}>Auth0 - Login</Text>
-//         <Text>
-//           You are {loggedIn ? '' : 'not '}logged in.
-//         </Text>
-//         <Button
-//           onPress={loggedIn ? this._onLogout : this._onLogin}
-//           title={loggedIn ? 'Log Out' : 'Log In'}
-//         />
-//       </View>
-//     );
-//   }
-// }
+const ACCESS_TOKEN = 'accessToken';
 
 export default class Auth0View extends React.Component {
   constructor(props) {
@@ -83,54 +28,48 @@ export default class Auth0View extends React.Component {
   }
 
   componentDidMount() {
-    //getting access token for user if it exists in keychain
-    // SInfo.getItem('currentUser', {
-    //   sharedPreferencesName: 'accessToken',
-    //   keychainService: 'com.rootuser.coffeewifi'
-    //   }).then(accessToken => {
-    //     // debugger;
-    //     console.log(accessToken);
-    //       if (accessToken) {
-    //         this.props.getUserProfile(accessToken)
-    //         .then(currentUserProfile => {
-    //           this.setState({ currentUserProfile: currentUserProfile.currentUserProfile });
-    //           //SAVE currentUserProfile.currentUserProfile object
-    //           SessionAPIUtil.saveUserProfile(currentUserProfile.currentUserProfile)
-    //           }
-    //         );
-    //       }
-    //   });
+  }
+
+  async _onValueChange(item, selectedValue) {
+    try {
+      await AsyncStorage.setItem(item, selectedValue);
+    } catch (error) {
+      console.log('AsyncStorage error: ' + error.message);
+    }
   }
 
   handleLogin() {
-    this.props.login().then(action => {
-      // this.setState({currentUser :  action.currentUser});
-      console.log(action);
-      // SInfo.setItem('currentUser', action.currentUser.accessToken, {
-      //   sharedPreferencesName: 'accessToken',
-      //   keychainService: 'com.rootuser.coffeewifi'
-      // });
-      // this.props.getUserProfile(action.currentUser.accessToken)
-      // .then(currentUserProfile => {
-      //   this.setState({ currentUserProfile: currentUserProfile.currentUserProfile });
-      //   }
-      // );
-    });
+    auth0.webAuth
+    .authorize({
+      scope: 'openid profile',
+      audience: 'https://' + auth0Config.domain + '/userinfo'
+    })
+    .then(resp => {
+      console.log('logged in');
+      console.log(resp);
+      this._onValueChange(ACCESS_TOKEN, resp[ACCESS_TOKEN]),
+      AlertIOS.alert(
+        "Logged in!"
+      );
+    })
+    .then(async () => {
+      try {
+        const token = await AsyncStorage.getItem(ACCESS_TOKEN);
+        auth0.auth.userInfo({token: token})
+          .then(user => {
+            console.log(user);
+          });
+      } catch(error) {
+        console.log('AsyncStorage error: ' + error.message);
+      }
+    })
   }
 
   handleLogout() {
-    this.props.logout().then(currentUser => {}
-    //   this.setState({currentUser: currentUser, currentUserProfile: null});
-    // }).then(() =>
-    //   SInfo.setItem('currentUser', null, {
-    //     sharedPreferencesName: 'accessToken',
-    //     keychainService: 'com.rootuser.coffeewifi'
-    //   })
-    );
+    auth0.webAuth.clearSession({})
   }
 
   renderSplash() {
-    // let loggedIn = this.props.loggedIn;
     return (
       <View style={styles.container}>
         <Text style={styles.header}>FlexProject Login</Text>
@@ -145,12 +84,6 @@ export default class Auth0View extends React.Component {
     );
   }
   render() {
-    // let loggedIn = this.props.loggedIn;
-    // if (loggedIn) {
-    //   return <MapViewContainer />;
-    // }
-    // else  {
-    // }
     return this.renderSplash();
   }
 }
@@ -168,5 +101,3 @@ const styles = StyleSheet.create({
     margin: 10
   }
 });
-
-// AppRegistry.registerComponent('Auth0View', () => Auth0View);
