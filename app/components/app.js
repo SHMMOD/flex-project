@@ -1,23 +1,22 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-// import SessionContainer from './session/session_container';
 import Auth0ViewContainer from './auth0/auth0_view_container';
+import RootTabs from './tab_navigator';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentUser: this.props.currentUser
+    };
+  }
+
+  componentWillReceiveProps(newProps) {
+    this.setState({
+      currentUser: newProps.currentUser
+    });
+  }
+
   render() {
-    return (
-      <View style={styles.container}>
-        <Auth0ViewContainer />
-      </View>
-    );
+    return this.state.currentUser ? <RootTabs /> : <Auth0ViewContainer />;
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
