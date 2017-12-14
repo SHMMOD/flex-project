@@ -31,7 +31,7 @@
 **POST: /api/notes**
 ```
 {
-  "name": "default name is - New Note"
+  "name": "default name is - New Note",
   "projectId": "project ID goes here"
 }
 ```
@@ -39,9 +39,31 @@
 **PUT /api/notes/:noteId**
 ```
 {
-  "name": "new note name",
-  "favorited": "false" 
+  "name": "edited note name",
+  "content": "edited content",
+  "favorited": "false"
 }
 ```
 
-**DELETE /api/notes/:noteId**
+## Note
+**GET: /api/recordings/:recordingId**
+
+**GET: /api/projects/:projectId/recordings**
+
+**POST: /api/notes**
+```
+{
+  "name": "default name is - New Note"
+  "projectId": "project ID goes here"
+}
+```
+
+**PUT /api/notes/:recordingId**
+```
+{
+  "name": "new note name",
+  "favorited": "false"
+}
+```
+
+**DELETE /api/notes/:recordingId**
