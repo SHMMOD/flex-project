@@ -10,12 +10,24 @@ const ProjectsScreen = ({ navigation }) => (
       onPress={() => navigation.navigate('Project')}
       title="Go to project"
     />
+    <Button
+      onPress={() => navigation.navigate('AnotherScreen')}
+      title="Go to Another screen"
+    />
+
   </View>
 );
 
 const ProjectScreen = () => (
   <Note/>
+
 );
+
+const AnotherScreen = () => (
+<Text>Hello</Text>
+);
+
+
 
 const ProjectsNavigator = StackNavigator({
   Projects: {
@@ -28,6 +40,12 @@ const ProjectsNavigator = StackNavigator({
     screen: ProjectScreen,
     navigationOptions: {
       headerTitle: 'Project',
+    },
+  },
+  AnotherScreen: {
+    screen: AnotherScreen,
+    navigationOptions: {
+      headerTitle: 'Another Screen',
     },
   },
 });

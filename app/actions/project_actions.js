@@ -19,4 +19,7 @@ const removeProject = project => ({
   project
 });
 
+
+export const fetchAllProjects
+
 //need to add thunk action creators

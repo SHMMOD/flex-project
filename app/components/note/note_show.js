@@ -1,15 +1,6 @@
 import React,{ Component } from 'react';
 import { StyleSheet, View, ScrollView, Text, TextInput } from 'react-native';
 
-class Title extends Component {
-  render(){
-    return(
-      <TextInput
-      />
-    );
-  }
-}
-
 
 export default class Note extends Component {
   constructor(props){
@@ -17,6 +8,7 @@ export default class Note extends Component {
     this.state = {title: '',body: ''};
   }
   render(){
+
     return(
       <View>
         <TextInput
