@@ -35,7 +35,9 @@ module.exports = (app) => {
     console.log("req body: ", req.body);
     Project.find({ userId: req.params.userId },
       function(err, projectsResp) {
+
         console.log("projectsResp", projectsResp);
+
         // TODO handle errors
         console.log("err", err);
         if (err) return res.json(err);
