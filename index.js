@@ -40,6 +40,6 @@ require('./routes/project_routes')(app);
 require('./routes/note_routes')(app);
 require('./routes/recording_routes')(app);
 
-const PORT = process.env.port || 5000;
+const PORT = process.env.PORT || 5000;
 console.log(`listening on ${PORT}`);
 app.listen(PORT);
