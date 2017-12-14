@@ -2,7 +2,10 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const projectSchema = new Schema({
-  name: String,
+  name: {
+    type: String,
+    required: true
+  }, 
   // TODO: associate with CURRENT user
   userId: {
     type: Schema.Types.ObjectId,
