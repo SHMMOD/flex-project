@@ -40,11 +40,24 @@ module.exports = (app) => {
 
       // allowable fields to update
       queryNoteResp.name = req.body.name || queryNoteResp.name;
+      queryNoteResp.favorited = req.body.favorited || queryNoteResp.favorited;
+
 
       queryNoteResp.save(function(saveErr, savedNoteResp) {
         if (saveErr) return res.send(err);
         return res.send(savedNoteResp);
-      }); 
+      });
     });
+  });
+
+  // DELETE a  note
+  app.delete('/api/notes/:noteId', (req, res) => {
+    Note.findByIdAndRemove(req.params.noteId,
+      function(err, noteResp) {
+        // TODO handle errors
+        if (err) return res.send(err);
+        // TODO: determine what to send down after a delete
+        return res.send(noteResp);
+      });
   });
 };

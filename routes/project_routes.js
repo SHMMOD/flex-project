@@ -72,11 +72,11 @@ module.exports = (app) => {
   // DELETE a project
   app.delete('/api/projects/:projectId', (req, res) => {
     Project.findByIdAndRemove(req.params.projectId,
-      function(err, projectsResp) {
+      function(err, projectResp) {
         // TODO handle errors
         if (err) return res.send(err);
         // TODO: determine what to send down after a delete
-        return res.send(projectsResp);
+        return res.send(projectResp);
       });
   });
 };

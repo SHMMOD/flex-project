@@ -11,7 +11,11 @@ const noteSchema = new Schema({
       ref: 'Project',
       // TODO: required is not preventing the creation of user-less projects!
       required: true
-    }
+  },
+  favorited: {
+    type: Boolean,
+    default: false
+  }
     // TODO: add timestamps, favorited
 });
 
