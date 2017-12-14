@@ -1,4 +1,4 @@
-import * as ProjectUtil from '../utils/project_api_util';
+import { fetchUserProjects, fetchSingleProject } from '../utils/project_api_util';
 
 export const RECEIVE_PROJECT = 'RECEIVE_PROJECT';
 export const RECEIVE_PROJECTS = 'RECEIVE_PROJECTS';
@@ -20,6 +20,12 @@ const removeProject = project => ({
 });
 
 
-export const fetchAllProjects
+export const fetchProjects = userId => dispatch => {
+  return fetchUserProjects(userId).then(projects => dispatch(receiveProjects(projects)))
+};
 
+
+export const fetchProject = id => dispatch => {
+  return fetchSingleProject(id).then(project => dispatch(receiveProject(project)))
+}
 //need to add thunk action creators
