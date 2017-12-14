@@ -32,4 +32,19 @@ module.exports = (app) => {
       return res.send(newNoteResp);
     });
   });
+
+  // PUT a note
+  app.put('/api/notes/:noteId', (req, res) => {
+    Note.findById(req.params.noteId, function(err, queryNoteResp) {
+      if (err) return res.send(err);
+
+      // allowable fields to update
+      queryNoteResp.name = req.body.name || queryNoteResp.name;
+
+      queryNoteResp.save(function(saveErr, savedNoteResp) {
+        if (saveErr) return res.send(err);
+        return res.send(savedNoteResp);
+      }); 
+    });
+  });
 };

@@ -12,7 +12,7 @@ const noteSchema = new Schema({
       // TODO: required is not preventing the creation of user-less projects!
       required: true
     }
-    // TODO: add timestamps
+    // TODO: add timestamps, favorited
 });
 
 const Note = mongoose.model('notes', noteSchema);
