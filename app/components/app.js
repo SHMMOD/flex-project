@@ -17,6 +17,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    return this.state.currentUser ? <RootTabs /> : <Auth0ViewContainer />;
+    // return this.state.currentUser ? <RootTabs /> : <Auth0ViewContainer />;
+    return <RootTabs />; // switch this back to the above line to display login screen
   }
 }
