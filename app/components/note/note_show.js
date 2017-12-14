@@ -1,18 +1,39 @@
 import React,{ Component } from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, ScrollView, Text, TextInput } from 'react-native';
 
+class Title extends Component {
+  render(){
+    return(
+      <TextInput
+      />
+    );
+  }
+}
 
 
 export default class Note extends Component {
+  constructor(props){
+    super(props);
+    this.state = {title: '',body: ''};
+  }
   render(){
     return(
-      <View style={{flex: 1, flexDirection: 'row', padding:30}}>
-        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'skyblue'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'steelblue'}} />
-        <Text>Title of the Song</Text>
+      <View>
+        <TextInput
+          placeholder="Add a title"
+          style={{padding:20, paddingTop: 20, fontSize:24}}
+          onChangeText={(title) => this.setState({title})}
 
-      </View>
+        />
+        <TextInput
+          placeholder="Add a note"
+          style={{padding:20, paddingTop: 20, fontSize:20}}
+          onChangeText={(body) => this.setState({body})}
+          multiline={true}
+        />
+</View>
+
+
     );
 
   }
