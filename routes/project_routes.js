@@ -31,9 +31,13 @@ module.exports = (app) => {
 
   // GET all of a user's projects
   app.get('/api/users/:userId/projects', function(req, res) {
+    console.log("req params: ", req.params);
+    console.log("req body: ", req.body);
     Project.find({ userId: req.params.userId },
       function(err, projectsResp) {
+        console.log("projectsResp", projectsResp);
         // TODO handle errors
+        console.log("err", err);
         if (err) return res.send(err);
         return res.send(projectsResp);
       }
