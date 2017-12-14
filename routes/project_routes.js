@@ -38,8 +38,8 @@ module.exports = (app) => {
         console.log("projectsResp", projectsResp);
         // TODO handle errors
         console.log("err", err);
-        if (err) return res.send(err);
-        return res.send(projectsResp);
+        if (err) return res.json(err);
+        return res.json(projectsResp);
       }
     );
   });
