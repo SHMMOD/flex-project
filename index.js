@@ -30,6 +30,7 @@ require('./routes/auth_routes')(app);
 require('./routes/user_routes')(app);
 require('./routes/project_routes')(app);
 require('./routes/note_routes')(app);
+require('./routes/recording_routes')(app);
 
 const PORT = process.env.port || 5000;
 console.log(`listening on ${PORT}`);

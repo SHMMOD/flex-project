@@ -40,11 +40,12 @@ module.exports = (app) => {
 
       // allowable fields to update
       queryNoteResp.name = req.body.name || queryNoteResp.name;
+      queryNoteResp.content = req.body.content || queryNoteResp.content;
       queryNoteResp.favorited = req.body.favorited || queryNoteResp.favorited;
 
 
       queryNoteResp.save(function(saveErr, savedNoteResp) {
-        if (saveErr) return res.send(err);
+        if (saveErr) return res.send(saveErr);
         return res.send(savedNoteResp);
       });
     });
