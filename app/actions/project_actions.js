@@ -21,7 +21,13 @@ const removeProject = project => ({
 
 
 export const fetchProjects = userId => dispatch => {
-  return fetchUserProjects(userId).then(projects => dispatch(receiveProjects(projects)))
+  return fetchUserProjects(userId).then(resp => {
+    // console.log(JSON.parse(projects._bodyText))
+    resp.json().then(obj => {
+      console.log(obj);
+      dispatch(receiveProjects(obj));
+    });
+  });
 };
 
 
