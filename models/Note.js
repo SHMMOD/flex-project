@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const timestamps = require('mongoose-timestamp');
 const { Schema } = mongoose;
 
 const noteSchema = new Schema({
@@ -12,12 +13,17 @@ const noteSchema = new Schema({
       // TODO: required is not preventing the creation of user-less projects!
       required: true
   },
+  content: {
+    type: String 
+  },
   favorited: {
     type: Boolean,
     default: false
   }
     // TODO: add timestamps, favorited
 });
+
+noteSchema.plugin(timestamps);
 
 const Note = mongoose.model('notes', noteSchema);
 
