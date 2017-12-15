@@ -1,9 +1,12 @@
 import mongoose, { Schema } from 'mongoose';
+import timestamps from 'mongoose-timestamp';
 
 const userSchema = new Schema({
-  name: String
-  // projects: [{ type: Schema.Types.ObjectId, ref: 'Project' }]
+  name: String,
+  projects: [{ type: Schema.Types.ObjectId, ref: 'Project' }]
 });
+
+userSchema.plugin(timestamps);
 
 export const User = mongoose.model('users', userSchema);
 

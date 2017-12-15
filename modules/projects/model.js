@@ -1,7 +1,10 @@
 import mongoose, { Schema } from 'mongoose';
 import timestamps from 'mongoose-timestamp';
 
+import { User } from '../users/model';
+
 const projectSchema = new Schema({
+  _id: Schema.Types.ObjectId,
   name: {
     type: String,
     required: true
@@ -18,7 +21,90 @@ projectSchema.plugin(timestamps);
 
 export const Project = mongoose.model('projects', projectSchema);
 
+
+
+
+// SEED DATA
 // const project1 = new Project({
-//   name: 'project1',
-//   userId: '5a30b30f22350f0b8531ad93'
-// }).save();
+//   _id: new mongoose.Types.ObjectId(),
+//   name: 'WILL NOTE DELETE 1',
+//   userId: '5a3355134ecec93ed167650e'
+// })
+//   .save()
+//   .then(function(savedProject) {
+//     User.findById(savedProject.userId)
+//       .then(function(user) {
+//         user.projects.push(savedProject._id);
+//         user.save();
+//       });
+//   });
+//
+// const project2 = new Project({
+//   _id: new mongoose.Types.ObjectId(),
+//   name: 'WILL NOTE DELETE 2',
+//   userId: '5a3355134ecec93ed167650e'
+// })
+//   .save()
+//   .then(function(savedProject) {
+//     User.findById(savedProject.userId)
+//       .then(function(user) {
+//         user.projects.push(savedProject._id);
+//         user.save();
+//       });
+//   });
+//
+// const project3 = new Project({
+//   _id: new mongoose.Types.ObjectId(),
+//   name: 'WILL NOTE DELETE 3',
+//   userId: '5a3355134ecec93ed167650e'
+// })
+//   .save()
+//   .then(function(savedProject) {
+//     User.findById(savedProject.userId)
+//       .then(function(user) {
+//         user.projects.push(savedProject._id);
+//         user.save();
+//       });
+//   });
+//
+// const project4 = new Project({
+//   _id: new mongoose.Types.ObjectId(),
+//   name: 'WILL NOTE DELETE 4',
+//   userId: '5a3355134ecec93ed167650d'
+// })
+//   .save()
+//   .then(function(savedProject) {
+//     User.findById(savedProject.userId)
+//       .then(function(user) {
+//         user.projects.push(savedProject._id);
+//         user.save();
+//       });
+//   });
+//
+// const project5 = new Project({
+//   _id: new mongoose.Types.ObjectId(),
+//   name: 'WILL NOTE DELETE 5',
+//   userId: '5a3355134ecec93ed167650c'
+// })
+//   .save()
+//   .then(function(savedProject) {
+//     User.findById(savedProject.userId)
+//       .then(function(user) {
+//         user.projects.push(savedProject._id);
+//         user.save();
+//       });
+//   });
+//
+// const project6 = new Project({
+//   _id: new mongoose.Types.ObjectId(),
+//   name: 'WILL NOTE DELETE 6',
+//   userId: '5a3355134ecec93ed167650c'
+// })
+//   .save()
+//   .then(function(savedProject) {
+//     User.findById(savedProject.userId)
+//       .then(function(user) {
+//         user.projects.push(savedProject._id);
+//         user.save();
+//       });
+//   });
