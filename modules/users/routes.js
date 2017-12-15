@@ -5,7 +5,6 @@ const routes = Router();
 
 // routes.get('/users', UserController.getAllUsers);
 // routes.post('/users', UserController.createUser);
-// routes.post('/users/auth0', UserController.loginWithAuth0);
 // routes.get('/users/seed', UserController.seedEvents);
 
 routes.get('/users/:userId', UserController.getUser);
