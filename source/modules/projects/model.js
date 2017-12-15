@@ -7,6 +7,7 @@ const projectSchema = new Schema({
   _id: Schema.Types.ObjectId,
   name: {
     type: String,
+    default: 'New Project',
     required: true
   },
   // TODO: associate with CURRENT user
