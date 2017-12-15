@@ -109,3 +109,20 @@ export const Project = mongoose.model('projects', projectSchema);
 //         user.save();
 //       });
 //   });
+
+
+// const project7 = new Project({
+//   _id: new mongoose.Types.ObjectId(),
+//   name: 'I AM NESTED INSIDE MY PARENT',
+//   userId: '5a34237b1862b54b203dc81d'
+// })
+//   .save(function(err) {
+//     if (err) return console.log(err);
+//   })
+//   .then(function(savedProject) {
+//     User.findById(savedProject.userId)
+//       .then(function(user) {
+//         user.projects.push(savedProject);
+//         user.save();
+//       });
+//   });
