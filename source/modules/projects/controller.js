@@ -10,6 +10,16 @@ export const getProject = async (req, res) => {
   }
 };
 
+
+export const getProjectsByUser = async (req, res) => {
+  try {
+    return res.status(200).json(await Project.find({userId: req.params.userId}))
+  } catch (err) {
+    return res.status(400).json({ error: true, message: 'Cannot find project' });
+  }
+};
+
+
 export const postProject = async (req, res) => {
   const newProject = new Project({
     _id: new mongoose.Types.ObjectId(),
@@ -27,8 +37,8 @@ export const postProject = async (req, res) => {
         console.log(err);
         res.status(500).json({ error: true, message: 'Error with project' })
       })
-      // sends new project object down if it saves successfully 
-      res.status(201).json(savedNewProject);
+      // sends new project object down if it saves successfully
+      res.status(200).json(savedNewProject);
     } catch (err) {
       res.status(err.status).json({ error: true, message: 'Error saving project' });
   }
