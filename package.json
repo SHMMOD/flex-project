@@ -8,14 +8,18 @@
     "npm": "5.6.0"
   },
   "scripts": {
-    "start": "nodemon main.js --exec babel-node --presets env",
-    "dev": "nodemon main.js"
+    "start": "node index.js",
+    "build": "babel source -d dist",
+    "serve": "node dist/index.js",
+    "dev": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.2",
     "cookie-session": "^2.0.0-beta.3",
@@ -25,5 +29,8 @@
     "nodemon": "^1.12.5",
     "passport": "^0.4.0",
     "passport-google-oauth20": "^1.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
   }
 }
