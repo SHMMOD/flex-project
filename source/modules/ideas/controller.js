@@ -66,3 +66,15 @@ export const editIdea = async (req, res) => {
       res.status(err.status).json({ error: true, message: 'Error saving idea' });
   }
 };
+
+export const deleteIdea = async (req, res) => {
+  let queriedIdea;
+  try {
+    queriedIdea = await Idea.findByIdAndRemove(req.params.ideaId);
+    console.log(`Idea Deleted: ${queriedIdea}`);
+    return res.status(200).json(queriedIdea);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ error: true, message: 'Error deleting idea' });
+  }
+};
