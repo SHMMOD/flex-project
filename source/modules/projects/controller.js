@@ -42,3 +42,44 @@ export const postProject = async (req, res) => {
       res.status(err.status).json({ error: true, message: 'Error saving project' });
   }
 };
+
+export const editProject = async (req, res) => {
+  let queriedProject;
+  try {
+    queriedProject = await Project.findById(req.params.projectId);
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ error: true, message: 'Error finding project' });
+  }
+
+  console.log(`Queried Project to Edit: ${queriedProject}`);
+
+  // allowable fields to update
+  queriedProject.name = req.body.name || queriedProject.name;
+
+  let savedProject;
+  try {
+    savedProject = await queriedProject.save();
+    return res.status(200).json(savedProject); 
+
+  } catch (err) {
+    res.status(400).json({ error: true, message: 'Error editing project' });
+  }
+
+
+
+};
+
+
+  // let savedNewProject;
+  // try {
+  //   savedNewProject = await newProject.save()
+  //     .catch(err => {
+  //       console.log(err);
+  //       res.status(500).json({ error: true, message: 'Error with project' })
+  //     })
+  //     // sends new project object down if it saves successfully
+  //     res.status(200).json(savedNewProject);
+  //   } catch (err) {
+  //     res.status(err.status).json({ error: true, message: 'Error saving project' });
+  // }
