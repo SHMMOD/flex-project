@@ -3,7 +3,6 @@ import timestamps from 'mongoose-timestamp';
 
 const userSchema = new Schema({
   name: String,
-  projects: []
 });
 
 userSchema.plugin(timestamps);
@@ -18,9 +17,4 @@ export const User = mongoose.model('users', userSchema);
 // }).save();
 // const mattS = new User({
 //   name: 'Matt S'
-// }).save();
-
-// WITH NESTED OBJECTS
-// const juan = new User({
-//   name: 'Juan'
 // }).save();

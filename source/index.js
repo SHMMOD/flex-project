@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
 // import UserRoutes from './modules';
-import { UserRoutes, ProjectRoutes } from './modules/index';
+import { UserRoutes, ProjectRoutes, NoteRoutes } from './modules/index';
 
 const app = express();
 
@@ -27,7 +27,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 
 // routes
-app.use('/api', [UserRoutes, ProjectRoutes]);
+app.use('/api', [UserRoutes, ProjectRoutes, NoteRoutes]);
 
 
 const PORT = process.env.PORT || 5000;

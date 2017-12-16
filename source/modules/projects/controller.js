@@ -30,7 +30,6 @@ export const postProject = async (req, res) => {
   console.log(`New Project: ${newProject}`);
 
   let savedNewProject;
-
   try {
     savedNewProject = await newProject.save()
       .catch(err => {
