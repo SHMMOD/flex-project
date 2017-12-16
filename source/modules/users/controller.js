@@ -1,5 +1,6 @@
 import { User } from './model';
 import { Project } from '../projects/model';
+import { Note } from '../notes/model';
 
 export const getUser = async (req, res) => {
   let results = {};
@@ -11,7 +12,6 @@ export const getUser = async (req, res) => {
         console.log(err);
         res.status(400).json({ error: true, message: 'Could not find user' })
       })
-    // res.status(200).json(queriedUser);
   } catch (err) {
     return res.status(500).json({ error: true, message: 'Cannot find user' });
   }
@@ -24,12 +24,24 @@ export const getUser = async (req, res) => {
         console.log(err);
         res.status(400).json({ error: true, message: 'Could not find project' })
       })
-    // res.status(200).json(queriedUser);
   } catch (err) {
     console.log(err);
     return res.status(500).json({ error: true, message: 'Cannot find project' });
   }
   results["projects"] = queriedProjects;
+
+  let queriedNotes;
+  try {
+    queriedNotes = await Note.find({userId: req.params.userId})
+      .catch(err => {
+        console.log(err);
+        res.status(400).json({ error: true, message: 'Could not find note' })
+      })
+  } catch (err) {
+    console.log(err);
+    return res.status(500).json({ error: true, message: 'Cannot find note' });
+  }
+  results["files"] = queriedNotes;
 
 
   res.status(200).json(results);
