@@ -7,5 +7,6 @@ routes.get('/projects/:projectId', ProjectController.getProject);
 routes.get('/users/:userId/projects', ProjectController.getProjectsByUser);
 routes.post('/projects', ProjectController.postProject);
 routes.put('/projects/:projectId', ProjectController.editProject);
+routes.delete('/projects/:projectId', ProjectController.deleteProject);
 
 export default routes;
