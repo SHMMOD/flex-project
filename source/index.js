@@ -3,7 +3,11 @@ import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
 // import UserRoutes from './modules';
-import { UserRoutes, ProjectRoutes, NoteRoutes, RecordingRoutes } from './modules/index';
+import { UserRoutes,
+        ProjectRoutes,
+        NoteRoutes,
+        RecordingRoutes,
+        IdeaRoutes } from './modules/index';
 
 const app = express();
 
@@ -27,7 +31,7 @@ app.use(bodyParser.urlencoded({ extended: false}));
 
 
 // routes
-app.use('/api', [UserRoutes, ProjectRoutes, NoteRoutes, RecordingRoutes]);
+app.use('/api', [UserRoutes, ProjectRoutes, NoteRoutes, RecordingRoutes, IdeaRoutes]);
 
 
 const PORT = process.env.PORT || 5000;
