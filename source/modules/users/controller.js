@@ -1,6 +1,7 @@
 import { User } from './model';
 import { Project } from '../projects/model';
 import { Note } from '../notes/model';
+import { Idea } from '../ideas/model';
 
 export const getUser = async (req, res) => {
   let results = {};
@@ -30,18 +31,18 @@ export const getUser = async (req, res) => {
   }
   results["projects"] = queriedProjects;
 
-  let queriedNotes;
+  let queriedIdeas;
   try {
-    queriedNotes = await Note.find({userId: req.params.userId})
+    queriedIdeas = await Idea.find({userId: req.params.userId})
       .catch(err => {
         console.log(err);
-        res.status(400).json({ error: true, message: 'Could not find note' })
+        res.status(400).json({ error: true, message: 'Could not find files' })
       })
   } catch (err) {
     console.log(err);
-    return res.status(500).json({ error: true, message: 'Cannot find note' });
+    return res.status(500).json({ error: true, message: 'Cannot find files' });
   }
-  results["files"] = queriedNotes;
+  results["ideas"] = queriedIdeas;
 
 
   res.status(200).json(results);
