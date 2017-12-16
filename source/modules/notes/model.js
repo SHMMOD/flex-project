@@ -20,7 +20,7 @@ const noteSchema = new Schema({
     type: String,
     required: true
   },
-  content: {
+  body: {
     type: String,
     default: ' ',
     required: true
@@ -41,7 +41,7 @@ export const Note = mongoose.model('notes', noteSchema);
 //   projectId: '5a347bc80351924e4188b1bf',
 //   userId: '5a347a71217e1d4e1c0f17a6',
 //   fileType: 'note',
-//   content: ' '
+//   body: ' '
 // }).save();
 // const awesomeNote = new Note({
 //   _id: new mongoose.Types.ObjectId(),
@@ -49,5 +49,5 @@ export const Note = mongoose.model('notes', noteSchema);
 //   projectId: '5a347bc80351924e4188b1c0',
 //   userId: '5a347a71217e1d4e1c0f17a6',
 //   fileType: "note",
-//   content: 'content goes here'
+//   body: 'content goes here'
 // }).save();
