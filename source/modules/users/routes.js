@@ -8,6 +8,7 @@ const routes = Router();
 // routes.get('/users/seed', UserController.seedEvents);
 
 routes.get('/users/:userId', UserController.getUser);
+// routes.get('/users/:usersId/projects', UserController.); 
 // routes.put('/users/:userId', UserController.updateUser);
 
 export default routes;

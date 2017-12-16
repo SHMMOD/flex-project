@@ -3,7 +3,6 @@ import timestamps from 'mongoose-timestamp';
 
 const userSchema = new Schema({
   name: String,
-  projects: [{ type: Schema.Types.ObjectId, ref: 'Project' }]
 });
 
 userSchema.plugin(timestamps);

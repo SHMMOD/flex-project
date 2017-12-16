@@ -4,6 +4,7 @@ import * as ProjectController from './controller';
 const routes = new Router();
 
 routes.get('/projects/:projectId', ProjectController.getProject);
+routes.get('/users/:userId/projects', ProjectController.getProjectsByUser);
 routes.post('/projects', ProjectController.postProject);
 
 // routes.get('/users', ProjectController.getAllUsers);
