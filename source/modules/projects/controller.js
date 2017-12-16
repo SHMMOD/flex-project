@@ -67,6 +67,8 @@ export const editProject = async (req, res) => {
   }
 };
 
+
+// FUNCTIONAL, BUT DOES NOT DELETE CHILDREN
 export const deleteProject = async (req, res) => {
   let queriedProject;
   try {
@@ -77,5 +79,15 @@ export const deleteProject = async (req, res) => {
     console.log(err);
     res.status(400).json({ error: true, message: 'Error finding project' });
   }
-
 };
+
+// export const deleteProject = async (req, res) => {
+//   let queriedProject;
+//   try {
+//     queriedProject = await Project.findById(req.params.projectId);
+//     console.log(`Project To Be Deleted: ${queriedProject}`);
+//     res.status(400).json({ error: true, message: 'Error finding project to delete' });
+//   } catch (err) {
+//     console.log(err);
+//   }
+// };
