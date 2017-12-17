@@ -6,12 +6,7 @@ const routes = new Router();
 routes.get('/projects/:projectId', ProjectController.getProject);
 routes.get('/users/:userId/projects', ProjectController.getProjectsByUser);
 routes.post('/projects', ProjectController.postProject);
-
-// routes.get('/users', ProjectController.getAllUsers);
-// routes.post('/users', ProjectController.createUser);
-// routes.post('/users/auth0', ProjectController.loginWithAuth0);
-// routes.get('/users/seed', ProjectController.seedEvents);
-
-// routes.put('/users/:userId', ProjectController.updateUser);
+routes.put('/projects/:projectId', ProjectController.editProject);
+routes.delete('/projects/:projectId', ProjectController.deleteProject);
 
 export default routes;

@@ -1,8 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import timestamps from 'mongoose-timestamp';
 
-import { User } from '../users/model';
-import { Note } from '../notes/model';
+import { Idea } from '../ideas/model';
 
 const projectSchema = new Schema({
   _id: Schema.Types.ObjectId,
@@ -19,6 +18,15 @@ const projectSchema = new Schema({
 });
 
 projectSchema.plugin(timestamps);
+
+projectSchema.methods.deleteChildIdeas = function(cb) {
+  const childIdeas = Idea.find({ projectId: this._id }, function(err, children) {
+    if (err) return console.log(err);
+    childIdeas.forEach(child => {
+      Idea.findByIdAndRemove(child._id);
+    });
+  });
+};
 
 export const Project = mongoose.model('projects', projectSchema);
 
