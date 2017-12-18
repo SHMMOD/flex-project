@@ -18,7 +18,8 @@ export const postIdea = async (req, res) => {
     fileType: req.body.fileType,
     name: defaultName,
     projectId: req.body.projectId,
-    userId: req.body.userId
+    userId: req.body.userId,
+    fileName = req.body.fileName; 
   });
 
   console.log(`New Idea: ${newIdea}`);
@@ -51,6 +52,7 @@ export const editIdea = async (req, res) => {
   queriedIdea.name = req.body.name || queriedIdea.name;
   queriedIdea.body = req.body.body || queriedIdea.body;
   queriedIdea.url = req.body.url || queriedIdea.url;
+  queriedIdea.fileName = req.body.fileName || queriedIdea.fileName;
   queriedIdea.favorited = req.body.favorited || queriedIdea.favorited;
 
   let savedIdea;
