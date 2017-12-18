@@ -29,6 +29,10 @@ const ideaSchema = new Schema({
     type: String,
     default: ' '
   },
+  fileName: {
+    type: String,
+    default: ' ' 
+  },
   favorited: {
     type: Boolean,
     default: false
